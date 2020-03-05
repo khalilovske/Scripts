@@ -1,0 +1,52 @@
+#! /bin/bash
+
+help(){
+    echo -e "you have to use: \n--first_name - for user's name \n--pass - for password\n--role - for user's role"
+}
+
+while [[ $# > 1 ]]
+do
+    par="$1"
+    case $par in
+        --first_name)
+            first_name="$2"
+            shift
+        ;;
+        --pass)
+            password="$2"
+            shift
+        ;;
+        --role)
+            user_role="$2"
+            shift
+        ;;
+        *)
+            echo -e "Bad parametr $1 \nyou have to use: --help"
+            exit 1
+        ;;
+    esac
+    shift
+done
+
+echo -e "$first_name\n$password\n$user_role"
+
+
+# if [ -z $first_name ];
+# then
+#     echo "Error: first name NOT exist"
+#     help;
+#     exit 1
+# fi
+
+# setUpuser(){
+#     if [[ $first_name =~ ^[a-Z]+$ ]];
+#     then
+#         echo "Name valid"
+#     else
+#         echo "Error: name invalid"
+#         exit 1
+#     fi
+
+#     echo "User $first_name exist"
+#     echo "$first_name " >> ./user_base.txt
+# }#! /bin/bash 
