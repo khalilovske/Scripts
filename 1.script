@@ -20,6 +20,10 @@ do
             user_role="$2"
             shift
         ;;
+    	--search)
+		search="$2"
+ 		shift
+	;;
         *)
             echo -e "Bad parametr $1 \nyou have to use: --help"
             exit 1
@@ -28,15 +32,35 @@ do
     shift
 done
 
-echo -e "$first_name\n$password\n$user_role"
+
+echo "$search"
+#echo -e "$first_name\n$password\n$user_role"
+#echo "$first_name " >> ./user_base.txt
+#echo "$password " >> ./user_base.txt
+#echo "$user_role " >> ./user_base.txt
 
 
-# if [ -z $first_name ];
-# then
-#     echo "Error: first name NOT exist"
-#     help;
-#     exit 1
-# fi
+ if [ -z $first_name ];
+ then
+     echo "Error: first name NOT exist"
+     help;
+     exit 1
+ fi
+
+ if [ -z $password ];
+ then
+     echo "Error: pasword NOT exist"
+     help;
+     exit 1
+ fi
+
+ if [ -z $user_role ];
+ then
+     echo "Error: user_role NOT exist"
+     help;
+     exit 1
+ fi
+
 
 # setUpuser(){
 #     if [[ $first_name =~ ^[a-Z]+$ ]];
@@ -49,4 +73,5 @@ echo -e "$first_name\n$password\n$user_role"
 
 #     echo "User $first_name exist"
 #     echo "$first_name " >> ./user_base.txt
-# }#! /bin/bash 
+
+# }
