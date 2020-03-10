@@ -1,0 +1,12 @@
+#cat /etc/named.conf
+#sed -i 's/listen-on port 53  { 127.0.0.1; }; /listen-on port 53  { any; };  /g' /etc/named.conf
+#sed -i 's/allow-query{ localhost; }; /allow-query{ any ; }; /g' /etc/named.conf
+#cat /etc/named.conf
+
+
+cat /etc/httpd/conf/httpd.conf | grep listen 
+
+sed -i 's/Listen 80/listen 88 /g' /etc/httpd/conf/httpd.conf
+service httpd restart
+cat /etc/httpd/conf/httpd.conf | grep listen
+
